@@ -1,1 +1,23 @@
-
+void affichplateau(int Xplateau,int Yplateau,int xpos,int ypos)
+{
+  int i=1,j=1,k=1;
+  printf("   ");
+  for(k=1;k!=Xplateau+1;k++)
+  {printf(" %d ",k);}
+  printf("\n");
+  for(j=1;j<Yplateau+1;j++){
+    printf(" %d ",j);
+    for(i=1;i<Xplateau+1;i++)
+      {
+        
+        if(xpos == i && ypos ==j)
+        {
+          printf("|X|");
+        }
+        else
+        {
+          printf("|-|");
+        }
+      }
+    printf("\n");
+    }}
