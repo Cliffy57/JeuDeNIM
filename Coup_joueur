@@ -1,0 +1,147 @@
+T_case Coup_joueur(int xplateau,int yplateau,T_case pion)
+{
+    int reponse=0;
+    if(pion.Ycase == yplateau-1 && pion.Xcase == xplateau-1)
+        {
+          printf("Où veux tu allez?\n1.A droite\n2.En bas?\n");
+          scanf("%d",&reponse);
+          switch (reponse)
+          {
+          case 1:
+            pion.Xcase++;
+            break;
+          
+          case 2:
+            pion.Ycase++;
+            break;
+
+          default: printf("Mauvaise saisie, recommencez\n");
+        }}
+        
+        else if(pion.Xcase == xplateau && pion.Ycase==yplateau-1)
+        {
+          printf("Où veux tu allez?\n1.En bas?\n");
+          scanf("%d",&reponse);
+          switch (reponse)
+          {
+          case 1:
+            pion.Ycase++;
+            break;
+
+          default: printf("Mauvaise saisie, recommencez\n");
+        }}
+
+        else if(pion.Ycase == yplateau && pion.Xcase == xplateau-1)
+        {
+          printf("Où veux tu allez?\n1.A droite\n");
+          scanf("%d",&reponse);
+          switch (reponse)
+          {
+          case 1:
+            pion.Xcase++;
+            break;
+
+          default: printf("Mauvaise saisie, recommencez\n");
+        }}
+
+        else if(pion.Xcase == xplateau-1 && pion.Ycase!=yplateau)
+        {
+          printf("Où veux tu allez?\n1.A droite\n2.En bas?\n3.En bas x2?\n");
+          scanf("%d",&reponse);
+          switch (reponse)
+          {
+          case 1:
+            pion.Xcase++;
+            break;
+          
+          case 2:
+            pion.Ycase++;
+            break;
+
+          case 3:
+            pion.Ycase = pion.Ycase +2;
+            break;
+
+          default: printf("Mauvaise saisie, recommencez\n");
+        }}
+        
+        else if(pion.Ycase == yplateau-1 && pion.Xcase!=xplateau)
+        {
+          printf("Où veux tu allez?\n1.A droite\n2.En bas?\n3.A droite x2?\n");
+          scanf("%d",&reponse);
+          switch (reponse)
+          {
+          case 1:
+            pion.Xcase++;
+            break;
+          
+          case 2:
+            pion.Ycase++;
+            break;
+
+          case 3:
+            pion.Xcase = pion.Xcase +2;
+            break;
+
+          default: printf("Mauvaise saisie, recommencez\n");
+        }}
+        else if(pion.Xcase == xplateau )
+        {
+          printf("Où veux tu allez?\n1.En bas?\n2.En bas x2?\n");
+          scanf("%d",&reponse);
+          switch (reponse)
+          {
+          case 1:
+            pion.Ycase++;
+            break;
+          
+          case 2:
+            pion.Ycase = pion.Ycase +2;
+            break;
+          
+          default: printf("Mauvaise saisie, recommencez\n");
+          }
+        }
+        else if(pion.Ycase == yplateau)
+        {
+          printf("Où veux tu allez?\n1.A droite\n2.A droite x2?\n");
+          scanf("%d",&reponse);
+          switch (reponse)
+          {
+          case 1:
+            pion.Xcase++;
+            break;
+          
+          case 2:
+            pion.Xcase= pion.Xcase +2;
+            break;
+
+          default: printf("Mauvaise saisie, recommencez\n");
+        }}
+        else
+        {
+          printf("Où veux tu allez?\n1.A droite\n2.En bas?\n3.A droite x2?\n4.En bas x2?\n");
+          scanf("%d",&reponse);
+          switch (reponse)
+          {
+          case 1:
+            pion.Xcase++;
+            break;
+          
+          case 2:
+            pion.Ycase++;
+            break;
+          
+          case 3:
+            pion.Xcase= pion.Xcase +2;
+            break;
+
+          case 4:
+            pion.Ycase = pion.Ycase +2;
+            break;
+
+          default: printf("Mauvaise saisie, recommencez\n");
+
+        }}
+        return pion;
+}
