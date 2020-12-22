@@ -1,0 +1,25 @@
+Ceci est un espace dedie aux idees potentiellement faisable afin de faire le projet , Ici on est libre d'ecrire comme de coder le but est juste d'expliquer ses
+idees pour le futur
+
+Ordre d'ecoulement du jeu;
+Paramètres du jeu :
+
+nombre de lignes : 5
+nombre de colonnes : 5
+niveau de 1 à 4 : 2
+qui commence ?
+l’ordinateur (1) ou le joueur (2) : 2
+
+Lorsque l'on demande qui commence , l'ordre se ferait sous deux variable
+si le joueur commence alors le joueur jouera lorsque; tour=1,3,5,7...
+puis l'ordinateur jouera lorsque; tour=2,4,6,8,...
+
+En bref , en fonction du 'qui commence ?' , on va devoir setup un systeme de tour avec 2 grand if , un if si c'est le cas 
+ou l'ordinateur commence et un second ou le joueur commence
+
+Ceci ammenera au fait que;(Nous prennons le cas ou le joueur commence)
+
+si pos_x(x du pion)==nblignes et pos_y(y du pion)==nbcolonnes
+et tour mod 2 == 0
+alors l'ordinateur a gagne
+sinon le joueur a gagne
