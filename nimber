@@ -1,0 +1,29 @@
+int nimber(T_case Caase,int Xplateau,int Yplateau)
+{
+    int soustracion = Xplateau-Yplateau;
+    int Nimber_case;
+    int compteur = 1;
+    int troispartrois = Xplateau+Yplateau;
+    while(troispartrois % 3 != 0)
+    {
+        troispartrois = troispartrois - compteur;
+    }
+    while (troispartrois > 0)
+    {   
+        if (((Caase.Xcase-Caase.Ycase)==soustracion) || ((Caase.Xcase-Caase.Ycase) == soustracion - troispartrois) || ((Caase.Xcase-Caase.Ycase) == soustracion + troispartrois))
+        {
+            Nimber_case = 0;
+        }
+        else
+        {
+            Nimber_case = 1;
+        }
+        if (Nimber_case == 0)
+        {
+            break;
+        }
+        
+        troispartrois = troispartrois -3;
+    }
+    return Nimber_case;
+}
