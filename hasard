@@ -1,0 +1,8 @@
+int hasard(int borninf,int bornsup)
+{
+    int n;
+    srand((unsigned) time(NULL)); /* MODIF */
+    n = (rand() % (bornsup - borninf +1)) + borninf;
+    printf("%d\n", n);
+    return n;
+}
