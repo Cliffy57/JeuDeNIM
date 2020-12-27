@@ -1,0 +1,39 @@
+int taillecol()
+{
+  int ncol;
+  int vmax=9;int vmin=2;
+        // On demande les col
+        printf("Selectionner le nombre de colonnes de  %d a %d : ",vmin,vmax);
+
+        // On verifie le nombre en entree
+        while ( scanf("%d", &ncol)!=1 || (ncol<vmin)|| (ncol>vmax))
+        {
+                printf("Erreur !\n");    
+            
+        }
+    return ncol;
+}
+int taillelig()
+{
+  int nlig;
+  int vmax=9;int vmin=2;
+        // On demande les lig
+        printf("Selectionner le nombre de lignes de %d a %d : ",vmin,vmax);
+
+        // On verifie le nombre en entree
+        while ( scanf("%d", &nlig)!=1 || (nlig<vmin)|| (nlig>vmax))
+        {
+                printf("Erreur !\n");    
+            
+        }
+    return nlig;
+}
+
+
+int main()
+{
+  int nlig , ncol;
+  ncol=taillecol();
+  nlig=taillelig();
+   lancerpartie(ncol,nlig);
+}
