@@ -1,15 +1,20 @@
-#include <stdio.h>
-
-int lireentier()
+int lireentier(int borninf,int bornsup ) 
 {
-int nombre_entre,borninf,bornsup;
-
-printf("Saisissez votre entier :\n");
-
-while (scanf("%d",&nombre_entre) !=1  || (borninf < nombre_entre) || (nombre_entre < bornsup))
-{
-  printf("Le nombre saisi est invalide !\n");
-
+int nombre_entre;
+while (scanf("%d",&nombre_entre) !=1   (borninf > nombre_entre)  (nombre_entre > bornsup))
+{        
+printf("Le nombre saisi est invalide !\n");
+}      
+return nombre_entre; 
 }
-return 0;
+int lireentier(int borninf,int bornsup )
+{
+    int nombre_entre;
+    while (scanf("%d",&nombre_entre) !=1  || (borninf > nombre_entre) || (nombre_entre > bornsup))
+        {
+        printf("Le nombre saisi est invalide !\n");
+
+        }
+
+    return nombre_entre;
 }
