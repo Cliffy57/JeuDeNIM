@@ -1,0 +1,53 @@
+typedef struct T_case T_case;
+struct T_case
+    {
+        int Xcase;
+        int Ycase;
+    };
+
+typedef struct T_Tab_Case T_Tab_Case;
+struct T_Tab_Case
+{
+    T_case taableau[4];
+};
+
+T_Tab_Case voisines( T_case pion,int xplateau,int yplateau)
+{
+    int nb_vois = 0;
+    T_Tab_Case voisins;
+    T_case epinard;
+    int compteur;
+    for(compteur=0;compteur<=3;compteur++)
+    {
+
+        if(pion.Xcase + 1 <= xplateau && pion.Ycase <= yplateau)
+        {
+            epinard.Xcase = pion.Xcase + 1;
+            epinard.Ycase = pion.Ycase;
+            voisins.taableau[0] = epinard;
+            nb_vois ++;
+        }
+        if(pion.Xcase +2 <= xplateau && pion.Ycase <= yplateau)
+        {
+            epinard.Xcase = pion.Xcase + 2;
+            epinard.Ycase = pion.Ycase;
+            voisins.taableau[1] = epinard;
+            nb_vois ++;
+        }
+        if(pion.Xcase <= xplateau && pion.Ycase +1 <= yplateau)
+        {
+            epinard.Xcase = pion.Xcase;
+            epinard.Ycase = pion.Ycase + 1;
+            voisins.taableau[2] = epinard;
+            nb_vois ++;
+        }
+        if(pion.Xcase <= xplateau && pion.Ycase +2 <= yplateau)
+        {
+            epinard.Xcase = pion.Xcase;
+            epinard.Ycase = pion.Ycase + 2;
+            voisins.taableau[3] = epinard;
+            nb_vois ++;
+        }}
+        nb_vois = nb_vois/4;
+    return voisins;
+}
