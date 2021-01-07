@@ -1,10 +1,10 @@
-T_case Coup_joueur(int xplateau,int yplateau,T_case pion,T_Tab_Case tabvoisin)
+T_case Coup_Ordi_Hasard(int xplateau,int yplateau,T_case pion)
 {
   int nbhasard;
     if(pion.Ycase == yplateau-1 && pion.Xcase == xplateau-1)
         {
-          nbhasard=hasard(1,2)
-          switch (nbnbhasard)
+          nbhasard=hasard(1,2);
+          switch (nbhasard)
           {
           case 1:
             pion.Xcase++;
@@ -28,7 +28,7 @@ T_case Coup_joueur(int xplateau,int yplateau,T_case pion,T_Tab_Case tabvoisin)
 
         else if(pion.Xcase == xplateau-1 && pion.Ycase!=yplateau)
         {
-          nbhasard=hasard(1,3)
+          nbhasard=hasard(1,3);
           switch (nbhasard)
           {
           case 1:
@@ -47,7 +47,7 @@ T_case Coup_joueur(int xplateau,int yplateau,T_case pion,T_Tab_Case tabvoisin)
         
         else if(pion.Ycase == yplateau-1 && pion.Xcase!=xplateau)
         {
-          nbhasard=hasard(1,3)
+          nbhasard=hasard(1,3);
           switch (nbhasard)
           {
           case 1:
@@ -65,7 +65,7 @@ T_case Coup_joueur(int xplateau,int yplateau,T_case pion,T_Tab_Case tabvoisin)
         }}
         else if(pion.Xcase == xplateau )
         {
-          nbhasard=hasard(1,2)
+          nbhasard=hasard(1,2);
           switch (nbhasard)
           {
           case 1:
@@ -80,7 +80,7 @@ T_case Coup_joueur(int xplateau,int yplateau,T_case pion,T_Tab_Case tabvoisin)
         }
         else if(pion.Ycase == yplateau)
         {
-          nbhasard=hasard(1,2)
+          nbhasard=hasard(1,2);
           switch (nbhasard)
           {
           case 1:
@@ -94,7 +94,7 @@ T_case Coup_joueur(int xplateau,int yplateau,T_case pion,T_Tab_Case tabvoisin)
         }}
         else
         {
-          nbhasard=hasard(1,4)
+          nbhasard=hasard(1,4);
           switch (nbhasard)
           {
           case 1:
