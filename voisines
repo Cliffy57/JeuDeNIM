@@ -9,6 +9,7 @@ typedef struct T_Tab_Case T_Tab_Case;
 struct T_Tab_Case
 {
     T_case taableau[4];
+    int nb_voisin;
 };
 
 T_Tab_Case voisines( T_case pion,int xplateau,int yplateau)
@@ -49,5 +50,6 @@ T_Tab_Case voisines( T_case pion,int xplateau,int yplateau)
             nb_vois ++;
         }}
         nb_vois = nb_vois/4;
+        voisins.nb_voisin=nb_vois;
     return voisins;
 }
