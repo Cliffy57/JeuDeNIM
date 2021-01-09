@@ -14,6 +14,10 @@ int nimber(T_case Caase,int Xplateau,int Yplateau)
         {
             Nimber_case = 0;
         }
+        else if(Caase.Xcase > Xplateau || Caase.Ycase > Yplateau)
+        {
+            Nimber_case = 1;
+        }
         else
         {
             Nimber_case = 1;
