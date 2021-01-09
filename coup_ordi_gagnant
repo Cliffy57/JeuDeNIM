@@ -1,0 +1,23 @@
+T_case coup_ordi_gagnant( int xplateau,int yplateau, T_case pion)
+{
+    int nimberpion = nimber(pion,xplateau,yplateau);
+    T_case pionretour;
+    int i;
+    if (nimberpion == 0)
+    {
+        pionretour = Coup_Ordi_Hasard(xplateau,yplateau,pion);
+    }
+    else if (nimberpion == 1)
+    {
+        T_Tab_Case voisinesbis = voisines(pion, xplateau, yplateau);
+        for(i=0; i<3; i++)
+        {
+            if(nimber(voisinesbis.taableau[i],xplateau,yplateau) == 0)
+            {
+                pionretour = voisinesbis.taableau[i];
+                break;
+            }
+        }
+    }
+    return pionretour;
+}
