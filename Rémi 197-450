@@ -1,0 +1,260 @@
+T_case Coup_joueur(int xplateau,int yplateau,T_case pion)
+{
+  //On indique au joueur que c'est son tour
+  printf("A toi de jouer !\n\n");
+  int reponse=0;
+  if(pion.Ycase == yplateau-1 && pion.Xcase == xplateau-1)
+  {
+    //On indique au joueur ou il peut se déplacer
+    printf("Où veux tu allez?\n1.A droite\n2.En bas?\n");
+    reponse = lireentier(1,2);
+      //En fonction du choix du joueur on déplace le pion selon les possibilités
+      switch (reponse)
+      {
+        case 1:
+          pion.Xcase++;
+          break;
+          
+        case 2:
+          pion.Ycase++;
+          break;
+      }}
+        
+        else if(pion.Xcase == xplateau && pion.Ycase==yplateau-1)
+        {
+          printf("Où veux tu allez?\n1.En bas?\n");
+          reponse = lireentier(1,1);
+          switch (reponse)
+          {
+          case 1:
+            pion.Ycase++;
+            break;
+
+        }}
+
+        else if(pion.Ycase == yplateau && pion.Xcase == xplateau-1)
+        {
+          printf("Où veux tu allez?\n1.A droite\n");  
+          reponse = lireentier(1,1);
+          switch (reponse)
+          {
+          case 1:
+            pion.Xcase++;
+            break;
+        }}
+
+        else if(pion.Xcase == xplateau-1 && pion.Ycase!=yplateau)
+        {
+          printf("Où veux tu allez?\n1.A droite\n2.En bas?\n3.En bas x2?\n");  
+          reponse = lireentier(1,3);
+          switch (reponse)
+          {
+          case 1:
+            pion.Xcase++;
+            break;
+          
+          case 2:
+            pion.Ycase++;
+            break;
+
+          case 3:
+            pion.Ycase = pion.Ycase +2;
+            break;
+
+        }}
+        
+        else if(pion.Ycase == yplateau-1 && pion.Xcase!=xplateau)
+        {
+          printf("Où veux tu allez?\n1.A droite\n2.En bas?\n3.A droite x2?\n");  
+          reponse = lireentier(1,3);
+          switch (reponse)
+          {
+          case 1:
+            pion.Xcase++;
+            break;
+          
+          case 2:
+            pion.Ycase++;
+            break;
+
+          case 3:
+            pion.Xcase = pion.Xcase +2;
+            break;
+        }}
+        else if(pion.Xcase == xplateau )
+        {
+          printf("Où veux tu allez?\n1.En bas?\n2.En bas x2?\n");  
+          reponse = lireentier(1,2);
+          switch (reponse)
+          {
+          case 1:
+            pion.Ycase++;
+            break;
+          
+          case 2:
+            pion.Ycase = pion.Ycase +2;
+            break;
+          }
+        }
+        else if(pion.Ycase == yplateau)
+        {
+           printf("Où veux tu allez?\n1.A droite\n2.A droite x2?\n");  
+          reponse = lireentier(1,2);
+          switch (reponse)
+          {
+          case 1:
+            pion.Xcase++;
+            break;
+          
+          case 2:
+            pion.Xcase= pion.Xcase +2;
+            break;
+        }}
+        else
+        {
+          printf("Où veux tu allez?\n1.A droite\n2.En bas?\n3.A droite x2?\n4.En bas x2?\n");  
+          reponse = lireentier(1,4);
+          switch (reponse)
+          {
+          case 1:
+            pion.Xcase++;
+            break;
+          
+          case 2:
+            pion.Ycase++;
+            break;
+          
+          case 3:
+            pion.Xcase= pion.Xcase +2;
+            break;
+
+          case 4:
+            pion.Ycase = pion.Ycase +2;
+            break;
+        }}
+        //on retourne ensuite la position du pion après déplacement du joueur
+        return pion;
+}
+
+T_case Coup_Ordi_Hasard(int xplateau,int yplateau,T_case pion)
+{
+  int nbhasard;
+  //Selon la position du pion, les possibilités pour l'ordinateurs sont différentes
+    if(pion.Ycase == yplateau-1 && pion.Xcase == xplateau-1)
+        {
+          //On tire un chiffre au hasard pour déterminer le coup de l'ordinateur selon le nombre de déplacemements disponible
+          nbhasard=hasard(1,2);
+          switch (nbhasard)
+          {
+          case 1:
+            pion.Xcase++;
+            break;
+          
+          case 2:
+            pion.Ycase++;
+            break;
+
+        }}
+        
+        else if(pion.Xcase == xplateau && pion.Ycase==yplateau-1)
+        {
+         pion.Ycase++;
+        }
+
+        else if(pion.Ycase == yplateau && pion.Xcase == xplateau-1)
+        {
+         pion.Xcase++;
+        }
+
+        else if(pion.Xcase == xplateau-1 && pion.Ycase!=yplateau)
+        {
+          nbhasard=hasard(1,3);
+          switch (nbhasard)
+          {
+          case 1:
+            pion.Xcase++;
+            break;
+          
+          case 2:
+            pion.Ycase++;
+            break;
+
+          case 3:
+            pion.Ycase = pion.Ycase +2;
+            break;
+
+        }}
+        
+        else if(pion.Ycase == yplateau-1 && pion.Xcase!=xplateau)
+        {
+          nbhasard=hasard(1,3);
+          switch (nbhasard)
+          {
+          case 1:
+            pion.Xcase++;
+            break;
+          
+          case 2:
+            pion.Ycase++;
+            break;
+
+          case 3:
+            pion.Xcase = pion.Xcase +2;
+            break;
+
+        }}
+        else if(pion.Xcase == xplateau )
+        {
+          nbhasard=hasard(1,2);
+          switch (nbhasard)
+          {
+          case 1:
+            pion.Ycase++;
+            break;
+          
+          case 2:
+            pion.Ycase = pion.Ycase +2;
+            break;
+          
+          }
+        }
+        else if(pion.Ycase == yplateau)
+        {
+          nbhasard=hasard(1,2);
+          switch (nbhasard)
+          {
+          case 1:
+            pion.Xcase++;
+            break;
+          
+          case 2:
+            pion.Xcase= pion.Xcase +2;
+            break;
+
+        }}
+        else
+        {
+          nbhasard=hasard(1,4);
+          switch (nbhasard)
+          {
+          case 1:
+            pion.Xcase++;
+            break;
+          
+          case 2:
+            pion.Ycase++;
+            break;
+          
+          case 3:
+            pion.Xcase= pion.Xcase +2;
+            break;
+
+          case 4:
+            pion.Ycase = pion.Ycase +2;
+            break;
+
+
+        }}
+        //On retourne ensuite la position du pion après déplacement de l'ordinateur 
+        return pion;
+}
