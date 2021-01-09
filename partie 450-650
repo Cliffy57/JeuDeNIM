@@ -1,0 +1,198 @@
+T_case coup_ordi_gagnant( int xplateau,int yplateau, T_case pion) //fonction qui calcule un coup gagnant pour l'ordinateur
+{
+ 
+    int nimberpion = nimber(pion,xplateau,yplateau); //nimber de la case du pion
+    T_case pionretour;
+    int i;
+    if (nimberpion == 0)    
+    {
+        pionretour = Coup_Ordi_Hasard(xplateau,yplateau,pion);
+    }
+    else if (nimberpion == 1)
+    {
+        T_Tab_Case voisinesbis = voisines(pion, xplateau, yplateau);
+        for(i=0; i<=3; i++)
+        {
+            if(nimber(voisinesbis.taableau[i],xplateau,yplateau) == 0) //se déplace au nimber le plus proche
+            {
+                pionretour = voisinesbis.taableau[i];
+                break;
+            }
+        }
+    }
+    return pionretour;
+}
+
+void affichplateau(int Xplateau,int Yplateau,int xpos,int ypos) //affiche le plateau de jeu
+{
+  int i=1,j=1,k=1;
+  printf("   ");
+  for(k=1;k!=Xplateau+1;k++)
+  {
+      printf(" %d ",k);
+  }
+  printf("\n");
+  for(j=1;j<Yplateau+1;j++)
+  {
+    printf(" %d ",j);
+    for(i=1;i<Xplateau+1;i++)
+      {
+        if(xpos == i && ypos ==j) //vérifie coordonnées du pion
+        {
+          printf("|X|");
+        }
+        else
+        {
+          printf("|-|");
+        }
+      }
+    printf("\n");
+  }
+  printf("\n");
+}
+
+void lancerpartie(int xplateau,int yplateau, parametrage parametres) //fonction principale pour le jeu
+{
+  printf("C'est l'heure du du-du-du-duel!\n\n");
+  T_case pion = {1,1}; //initialisation du pion
+  int compteur_tour = 1;
+  int numberhasard;
+  affichplateau(xplateau,yplateau,pion.Xcase,pion.Ycase);
+  
+  while(pion.Xcase != xplateau || pion.Ycase != yplateau) //condition de fin de partie
+      {
+        if (parametres.next == 1) //cas si ordi commence
+        {
+            if(compteur_tour %2 ==0) //vérifie si c'est le tour du joueur
+            {
+                pion = Coup_joueur(xplateau,yplateau,pion);
+            }
+            else
+            {
+                 printf("Au tour de l'ordinateur ! \n");
+                switch (parametres.niveau) //différent cas selon le niveau de difficulté
+                {
+                    case 1:
+                    
+                        pion = Coup_Ordi_Hasard(xplateau,yplateau,pion);
+                        break;
+
+                     case 2:
+                        numberhasard = hasard(1,3);
+                        switch (numberhasard)
+                        {
+                            case 2:
+                                pion = coup_ordi_gagnant(xplateau,yplateau,pion);
+                                break;
+                            
+                            default:
+                                pion = Coup_Ordi_Hasard(xplateau,yplateau,pion);
+                                break;
+                        }
+                        break;
+                
+                    case 3:
+                        numberhasard = hasard(1,3);
+                        switch (numberhasard)
+                        {
+                            case 2:
+                                pion = Coup_Ordi_Hasard(xplateau,yplateau,pion);
+                                break;
+                            
+                            default:
+                                pion = coup_ordi_gagnant(xplateau,yplateau,pion);
+                                break;
+                        }
+                        break;
+                    
+                    case 4:
+                        pion = coup_ordi_gagnant(xplateau,yplateau,pion);
+                        break;
+                }
+            }
+        }
+        else //cas joueur commence
+        {
+            if(compteur_tour %2 ==0) //vérifie si c'est le tour de l'ordinateur
+            {
+                printf("Au tour de l'ordinateur ! \n\n");
+                switch (parametres.niveau)
+                {
+                case 1:
+                    pion = Coup_Ordi_Hasard(xplateau,yplateau,pion);
+                    break;
+
+                case 2:
+                    numberhasard = hasard(1,3);
+                    switch (numberhasard)
+                    {
+                        case 2:
+                            pion = coup_ordi_gagnant(xplateau,yplateau,pion);
+                            break;
+                        
+                        default:
+                            pion = Coup_Ordi_Hasard(xplateau,yplateau,pion);
+                            break;
+                    }
+                    break;
+                
+                case 3:
+                    numberhasard = hasard(1,3);
+                    switch (numberhasard)
+                    {
+                        case 2:
+                            pion = Coup_Ordi_Hasard(xplateau,yplateau,pion);
+                            break;
+                        
+                        default:
+                            pion = coup_ordi_gagnant(xplateau,yplateau,pion);
+                            break;
+                    }
+                    break;
+
+                case 4:
+                    pion = coup_ordi_gagnant(xplateau,yplateau,pion);
+                    break;
+                }
+            }
+            else
+            {
+              pion = Coup_joueur(xplateau,yplateau,pion);
+            }
+           
+         }
+        compteur_tour ++;
+        printf("Le pion est maintenant en (%d;%d)\n\n",pion.Xcase,pion.Ycase);
+    affichplateau(xplateau,yplateau,pion.Xcase,pion.Ycase);
+      }
+    if (parametres.next == 1) //vérifie si on a gagné ou perdu
+    {
+        if(compteur_tour%2 == 0)
+        {
+            printf("Partie terminé, VOUS AVEZ PERDU");
+        }
+        else
+        {
+            printf("Partie terminé, VOUS AVEZ GAGNÉ");
+        }
+        
+    }
+    else
+    {
+        if(compteur_tour%2 == 0)
+        {
+            printf("Partie terminé, VOUS AVEZ GAGNÉ");
+        }
+        else
+        {
+            printf("Partie terminé, VOUS AVEZ PERDU");
+        }
+    }
+}
+
+
+int main()
+{   
+    parametrage parametre = parametres();
+    lancerpartie(parametre.ncol,parametre.nlig, parametre);
+}
